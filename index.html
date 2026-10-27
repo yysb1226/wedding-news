@@ -1,211 +1,198 @@
+
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#f4efe7">
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <meta name="description" content="두 사람이 전하는 작고 다정한 결혼 소식입니다.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ko_KR">
-    <meta property="og:title" content="우리의 결혼 소식">
-    <meta property="og:site_name" content="우리의 결혼 소식">
-    <meta property="og:description" content="초대 대신, 작고 다정한 결혼 소식을 전합니다.">
-    <meta name="twitter:card" content="summary">
-    <title>우리의 결혼 소식</title>
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe7">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="두 사람이 전하는 작고 다정한 결혼 소식입니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="우리의 결혼 소식">
+  <meta property="og:description" content="초대 대신, 작고 다정한 결혼 소식을 전합니다.">
+  <title>우리의 결혼 소식</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
 
-  <body>
-    <div class="reading-progress" aria-hidden="true"><span></span></div>
-    <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <div class="site-shell">
+    <!-- 표지: wedding_1.jpg -->
+    <header class="cover" id="top" aria-labelledby="cover-title">
+      <div class="running-head" aria-hidden="true">
+        <span>결혼 소식</span><span>VOL. 01</span>
+      </div>
 
-    <div class="site-shell">
-      <header class="cover" id="top" aria-labelledby="cover-title">
-        <div class="running-head" aria-hidden="true">
-          <span>결혼 소식</span>
-          <span>VOL. 01</span>
+      <div class="photo-shell photo-shell--cover reveal" data-photo>
+        <img src="./assets/photos/wedding_1.jpg" width="1080" height="1350"
+             alt="결혼 소식 표지 사진" fetchpriority="high"
+             style="--photo-position: center 45%;">
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>PHOTO 01</span><small>표지 사진</small>
+        </div>
+      </div>
+
+      <div class="cover-copy reveal">
+        <p class="eyebrow">A SMALL WEDDING, A BIG NEWS</p>
+        <!-- 실제 이름과 날짜로 바꿔 주세요. -->
+        <h1 id="cover-title">저희,<br>결혼합니다.</h1>
+        <p class="names"><span>신랑 이름</span><i>그리고</i><span>신부 이름</span></p>
+        <p class="date">20XX. XX. XX</p>
+      </div>
+
+      <a class="scroll-cue" href="#main">
+        <span>천천히 넘겨 보세요</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </a>
+    </header>
+
+    <main id="main">
+      <!-- CHAPTER 01: wedding_2.jpg + wedding_3.jpg -->
+      <section class="page story" aria-labelledby="story-one-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>CHAPTER 01</span><span>01 / 05</span>
         </div>
 
-        <div class="photo-shell photo-shell--cover reveal" data-photo>
-          <!-- 사진 수정: assets/photos/couple-01.webp 파일을 넣어 주세요. -->
-          <img
-            src="./assets/photos/couple-01.webp"
-            width="1080"
-            height="1350"
-            alt="서로를 바라보는 신랑과 신부"
-            fetchpriority="high"
-            style="--photo-position: center 45%;"
-          >
-          <div class="photo-placeholder" role="img" aria-label="첫 번째 커플 사진 자리" aria-hidden="true">
-            <span>PHOTO 01</span>
-            <svg viewBox="0 0 120 96" aria-hidden="true">
-              <path d="M11 78 39 49l18 17 13-12 39 24"></path>
-              <circle cx="82" cy="31" r="11"></circle>
-              <rect x="6" y="6" width="108" height="84" rx="3"></rect>
-            </svg>
-            <small>첫 번째 사진을 넣어 주세요</small>
+        <div class="photo-album reveal" role="group" aria-label="함께한 두 장의 사진">
+          <div class="photo-shell photo-shell--album" data-photo>
+            <img src="./assets/photos/wedding_2.jpg" width="1080" height="1350"
+                 alt="함께한 순간을 담은 두 번째 사진" loading="lazy" decoding="async"
+                 style="--photo-position: center center;">
+            <div class="photo-placeholder" aria-hidden="true">
+              <span>PHOTO 02</span><small>앨범 왼쪽</small>
+            </div>
+          </div>
+          <div class="photo-shell photo-shell--album" data-photo>
+            <img src="./assets/photos/wedding_3.jpg" width="1080" height="1350"
+                 alt="함께한 순간을 담은 세 번째 사진" loading="lazy" decoding="async"
+                 style="--photo-position: center center;">
+            <div class="photo-placeholder" aria-hidden="true">
+              <span>PHOTO 03</span><small>앨범 오른쪽</small>
+            </div>
           </div>
         </div>
 
-        <div class="cover-copy reveal">
-          <p class="eyebrow">A SMALL WEDDING, A BIG NEWS</p>
-          <!-- 문구 수정: 아래 이름과 날짜를 실제 정보로 바꿔 주세요. -->
-          <h1 id="cover-title">저희,<br>결혼합니다.</h1>
-          <p class="names"><span>신랑 이름</span><i>그리고</i><span>신부 이름</span></p>
-          <p class="date">20XX. XX. XX</p>
+        <div class="story-copy reveal">
+          <p class="kicker">둘이, 한 팀이 되었습니다</p>
+          <h2 id="story-one-title">평생의 전속<br>사진사를 구했습니다.</h2>
+          <p>서로의 사진을 제일 못 찍어 주던 두 사람이, 이제 평생 서로의 전속 사진사가 되기로 했습니다.</p>
+          <p class="side-note">사진 실력은 계속 협의 중입니다.</p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: wedding_4.jpg -->
+      <section class="page story" aria-labelledby="story-two-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>CHAPTER 02</span><span>02 / 05</span>
         </div>
 
-        <a class="scroll-cue" href="#main">
-          <span>천천히 넘겨 보세요</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-        </a>
-      </header>
-
-      <main id="main">
-        <section class="page story" aria-labelledby="story-one-title">
-          <div class="page-meta reveal" aria-hidden="true">
-            <span>CHAPTER 01</span>
-            <span>01 / 04</span>
+        <div class="photo-shell photo-shell--tilt-right reveal" data-photo>
+          <img src="./assets/photos/wedding_4.jpg" width="1080" height="1350"
+               alt="두 사람의 네 번째 사진" loading="lazy" decoding="async"
+               style="--photo-position: center center;">
+          <div class="photo-placeholder" aria-hidden="true">
+            <span>PHOTO 04</span><small>네 번째 사진</small>
           </div>
+        </div>
 
-          <div class="photo-shell photo-shell--tilt-left reveal" data-photo>
-            <!-- 사진 수정: assets/photos/couple-02.webp 파일을 넣어 주세요. -->
-            <img
-              src="./assets/photos/couple-02.webp"
-              width="1080"
-              height="1350"
-              alt="함께 웃고 있는 신랑과 신부"
-              loading="lazy"
-              decoding="async"
-              style="--photo-position: center center;"
-            >
-            <div class="photo-placeholder" role="img" aria-label="두 번째 커플 사진 자리" aria-hidden="true">
-              <span>PHOTO 02</span>
-              <svg viewBox="0 0 120 96" aria-hidden="true">
-                <path d="M11 78 39 49l18 17 13-12 39 24"></path>
-                <circle cx="82" cy="31" r="11"></circle>
-                <rect x="6" y="6" width="108" height="84" rx="3"></rect>
-              </svg>
-              <small>두 번째 사진을 넣어 주세요</small>
+        <div class="story-copy reveal">
+          <p class="kicker">다른 점도, 닮은 점도</p>
+          <h2 id="story-two-title">잘 맞아서보다,<br>잘 맞춰 가고 싶어서.</h2>
+          <p>취향은 꽤 다르지만 웃음 포인트는 묘하게 같습니다. 완벽하게 잘 맞아서가 아니라, 맞춰 가는 일이 즐거워서 결혼합니다.</p>
+          <p class="side-note">메뉴 정하기는 여전히 30분.</p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03: 소식지의 핵심 안내문 -->
+      <section class="page family-note" aria-labelledby="family-note-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>CHAPTER 03</span><span>03 / 05</span>
+        </div>
+
+        <div class="letter reveal">
+          <p class="letter-mark" aria-hidden="true">*</p>
+          <p class="kicker">작은 결혼식 안내</p>
+          <h2 id="family-note-title">초대 대신,<br>소식을 전합니다.</h2>
+          <div class="letter-body">
+            <p>저희는 가까운 가족들만 모시고 조용히 작은 결혼식을 올립니다.</p>
+            <p>소중한 분들을 모두 한자리에 모시지 못해 아쉽지만, 기쁜 소식만큼은 꼭 나누고 싶었습니다.</p>
+            <p>어디에서든 한 번 웃으며 축하해 주시는 마음이면 저희에게 충분합니다.</p>
+          </div>
+          <p class="letter-highlight">초대의 부담 없이,<br>축하의 마음만 감사히 받겠습니다.</p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: wedding_5.jpg + wedding_6.jpg -->
+      <section class="page story closing" aria-labelledby="closing-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>CHAPTER 04</span><span>04 / 05</span>
+        </div>
+
+        <div class="photo-album reveal" role="group" aria-label="앞으로의 시간을 담은 두 장의 사진">
+          <div class="photo-shell photo-shell--album" data-photo>
+            <img src="./assets/photos/wedding_5.jpg" width="1080" height="1350"
+                 alt="두 사람의 다섯 번째 사진" loading="lazy" decoding="async"
+                 style="--photo-position: center center;">
+            <div class="photo-placeholder" aria-hidden="true">
+              <span>PHOTO 05</span><small>앨범 왼쪽</small>
             </div>
           </div>
-
-          <div class="story-copy reveal">
-            <p class="kicker">둘이, 한 팀이 되었습니다</p>
-            <h2 id="story-one-title">평생의 전속<br>사진사를 구했습니다.</h2>
-            <p>서로의 사진을 제일 못 찍어 주던 두 사람이, 이제 평생 서로의 전속 사진사가 되기로 했습니다.</p>
-            <p class="side-note">사진 실력은 계속 협의 중입니다.</p>
-          </div>
-        </section>
-
-        <section class="page story" aria-labelledby="story-two-title">
-          <div class="page-meta reveal" aria-hidden="true">
-            <span>CHAPTER 02</span>
-            <span>02 / 04</span>
-          </div>
-
-          <div class="photo-shell photo-shell--tilt-right reveal" data-photo>
-            <!-- 사진 수정: assets/photos/couple-03.webp 파일을 넣어 주세요. -->
-            <img
-              src="./assets/photos/couple-03.webp"
-              width="1080"
-              height="1350"
-              alt="나란히 걷고 있는 신랑과 신부"
-              loading="lazy"
-              decoding="async"
-              style="--photo-position: center center;"
-            >
-            <div class="photo-placeholder" role="img" aria-label="세 번째 커플 사진 자리" aria-hidden="true">
-              <span>PHOTO 03</span>
-              <svg viewBox="0 0 120 96" aria-hidden="true">
-                <path d="M11 78 39 49l18 17 13-12 39 24"></path>
-                <circle cx="82" cy="31" r="11"></circle>
-                <rect x="6" y="6" width="108" height="84" rx="3"></rect>
-              </svg>
-              <small>세 번째 사진을 넣어 주세요</small>
+          <div class="photo-shell photo-shell--album" data-photo>
+            <img src="./assets/photos/wedding_6.jpg" width="1080" height="1350"
+                 alt="두 사람의 여섯 번째 사진" loading="lazy" decoding="async"
+                 style="--photo-position: center center;">
+            <div class="photo-placeholder" aria-hidden="true">
+              <span>PHOTO 06</span><small>앨범 오른쪽</small>
             </div>
           </div>
+        </div>
 
-          <div class="story-copy reveal">
-            <p class="kicker">다른 점도, 닮은 점도</p>
-            <h2 id="story-two-title">잘 맞아서보다,<br>잘 맞춰 가고 싶어서.</h2>
-            <p>취향은 꽤 다르지만 웃음 포인트는 묘하게 같습니다. 완벽하게 잘 맞아서가 아니라, 맞춰 가는 일이 즐거워서 결혼합니다.</p>
-            <p class="side-note">메뉴 정하기는 여전히 30분.</p>
+        <div class="story-copy story-copy--center reveal">
+          <p class="kicker">그리고 앞으로도</p>
+          <h2 id="closing-title">잘 먹고, 자주 웃고,<br>언제나 같은 편으로.</h2>
+          <p>저희답게 재미있고 다정하게 잘 살아가겠습니다.</p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 05 / FINALE: wedding_7.jpg -->
+      <section class="page finale" aria-labelledby="finale-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>FINALE</span><span>05 / 05</span>
+        </div>
+
+        <div class="photo-shell photo-shell--finale reveal" data-photo>
+          <img src="./assets/photos/wedding_7.jpg" width="1080" height="1350"
+               alt="마지막 인사를 전하는 일곱 번째 사진" loading="lazy" decoding="async"
+               style="--photo-position: center center;">
+          <div class="photo-placeholder" aria-hidden="true">
+            <span>PHOTO 07</span><small>마지막 사진</small>
           </div>
-        </section>
+        </div>
 
-        <section class="page family-note" aria-labelledby="family-note-title">
-          <div class="page-meta reveal" aria-hidden="true">
-            <span>CHAPTER 03</span>
-            <span>03 / 04</span>
+        <div class="story-copy story-copy--center reveal">
+          <p class="kicker">WITH LOVE, ALWAYS</p>
+          <h2 id="finale-title">저희의 새로운 시작을<br>따뜻하게 지켜봐 주세요.</h2>
+          <p>멀리서 전해 주시는 마음까지 오래도록 간직하겠습니다.<br>고맙습니다.</p>
+          <!-- 실제 이름과 날짜로 바꿔 주세요. -->
+          <div class="signature">
+            <span>20XX. XX. XX</span>
+            <strong>신랑 이름 · 신부 이름 드림</strong>
           </div>
+        </div>
+      </section>
+    </main>
 
-          <div class="letter reveal">
-            <p class="letter-mark" aria-hidden="true">*</p>
-            <p class="kicker">작은 결혼식 안내</p>
-            <h2 id="family-note-title">초대 대신,<br>소식을 전합니다.</h2>
-
-            <div class="letter-body">
-              <p>저희는 가까운 가족들만 모시고 조용히 작은 결혼식을 올립니다.</p>
-              <p>소중한 분들을 모두 한자리에 모시지 못해 아쉽지만, 기쁜 소식만큼은 꼭 나누고 싶었습니다.</p>
-              <p>어디에서든 한 번 웃으며 축하해 주시는 마음이면 저희에게 충분합니다.</p>
-            </div>
-
-            <p class="letter-highlight">초대의 부담 없이,<br>축하의 마음만 감사히 받겠습니다.</p>
-          </div>
-        </section>
-
-        <section class="page story closing" aria-labelledby="closing-title">
-          <div class="page-meta reveal" aria-hidden="true">
-            <span>CHAPTER 04</span>
-            <span>04 / 04</span>
-          </div>
-
-          <div class="photo-shell photo-shell--closing reveal" data-photo>
-            <!-- 사진 수정: assets/photos/couple-04.webp 파일을 넣어 주세요. -->
-            <img
-              src="./assets/photos/couple-04.webp"
-              width="1080"
-              height="1350"
-              alt="함께 앞을 바라보는 신랑과 신부"
-              loading="lazy"
-              decoding="async"
-              style="--photo-position: center center;"
-            >
-            <div class="photo-placeholder" role="img" aria-label="마지막 커플 사진 자리" aria-hidden="true">
-              <span>PHOTO 04</span>
-              <svg viewBox="0 0 120 96" aria-hidden="true">
-                <path d="M11 78 39 49l18 17 13-12 39 24"></path>
-                <circle cx="82" cy="31" r="11"></circle>
-                <rect x="6" y="6" width="108" height="84" rx="3"></rect>
-              </svg>
-              <small>마지막 사진을 넣어 주세요</small>
-            </div>
-          </div>
-
-          <div class="story-copy story-copy--center reveal">
-            <p class="kicker">그리고 앞으로도</p>
-            <h2 id="closing-title">잘 먹고, 자주 웃고,<br>언제나 같은 편으로.</h2>
-            <p>저희답게 재미있고 다정하게 잘 살아가겠습니다.</p>
-
-            <!-- 문구 수정: 아래 이름과 날짜를 실제 정보로 바꿔 주세요. -->
-            <div class="signature">
-              <span>20XX. XX. XX</span>
-              <strong>신랑 이름 · 신부 이름 드림</strong>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <p aria-hidden="true">FIN.</p>
-        <button class="share-button" type="button" id="share-button" aria-describedby="share-status">이 소식 공유하기</button>
-        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
-        <a href="#top" id="back-to-top">처음으로 돌아가기</a>
-      </footer>
-    </div>
-  </body>
+    <footer class="site-footer">
+      <p aria-hidden="true">FIN.</p>
+      <button class="share-button" type="button" id="share-button"
+              aria-describedby="share-status">이 소식 공유하기</button>
+      <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+      <a href="#top" id="back-to-top">처음으로 돌아가기</a>
+    </footer>
+  </div>
+</body>
 </html>
