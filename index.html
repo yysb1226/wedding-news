@@ -6,193 +6,338 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4efe7">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="description" content="두 사람이 전하는 작고 다정한 결혼 소식입니다.">
+  <meta name="description" content="가족과 함께하는 작은 예식, 두 사람이 전하는 결혼 소식입니다.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="우리의 결혼 소식">
-  <meta property="og:description" content="초대 대신, 작고 다정한 결혼 소식을 전합니다.">
+  <meta property="og:description" content="서로의 삶에 따뜻한 온기가 되어줄 두 사람이 만났습니다.">
   <title>우리의 결혼 소식</title>
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
 </head>
+
 <body>
-  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <div class="reading-progress" aria-hidden="true">
+    <span></span>
+  </div>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
 
   <div class="site-shell">
-    <!-- 표지: wedding_1.jpg -->
-    <header class="cover" id="top" aria-labelledby="cover-title">
+
+    <!-- 1. COVER -->
+    <header class="cover" id="top">
       <div class="running-head" aria-hidden="true">
-        <span>결혼 소식</span><span>VOL. 01</span>
+        <span>결혼 소식</span>
+        <span>VOL. 01</span>
       </div>
 
       <div class="photo-shell photo-shell--cover reveal" data-photo>
-        <img src="./assets/photos/wedding_1.jpg" width="1080" height="1350"
-             alt="결혼 소식 표지 사진" fetchpriority="high"
-             style="--photo-position: center 45%;">
+        <img
+          src="./assets/photos/wedding_1.jpg"
+          alt="결혼 소식 표지 사진"
+          width="1080"
+          height="1350"
+          fetchpriority="high"
+          style="--photo-position:center 45%"
+        >
         <div class="photo-placeholder" aria-hidden="true">
-          <span>PHOTO 01</span><small>표지 사진</small>
+          <span>PHOTO 01</span>
+          <small>표지 사진</small>
         </div>
       </div>
 
       <div class="cover-copy reveal">
         <p class="eyebrow">A SMALL WEDDING, A BIG NEWS</p>
-        <!-- 실제 이름과 날짜로 바꿔 주세요. -->
-        <h1 id="cover-title">저희,<br>결혼합니다.</h1>
-        <p class="names"><span>김성빈</span><i>그리고</i><span>최윤영</span></p>
-        <p class="date">2026. 12. 26</p>
+        <h1>서로의 삶에<br>따뜻한 온기가 되어줄<br>두 사람이 만났습니다.</h1>
+        <p class="names">
+          <span>신랑 이름</span>
+          <i>그리고</i>
+          <span>신부 이름</span>
+        </p>
+        <p class="date">20XX. XX. XX</p>
       </div>
 
       <a class="scroll-cue" href="#main">
-        <span>천천히 넘겨 보세요</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        천천히 내려보세요 <span aria-hidden="true">↓</span>
       </a>
     </header>
 
     <main id="main">
-      <!-- CHAPTER 01: wedding_2.jpg + wedding_3.jpg -->
-      <section class="page story" aria-labelledby="story-one-title">
+
+      <!-- 2. FAMILY WEDDING LETTER -->
+      <section class="page family-note" aria-labelledby="family-title">
         <div class="page-meta reveal" aria-hidden="true">
-          <span>CHAPTER 01</span><span>01 / 05</span>
-        </div>
-
-        <div class="photo-album reveal" role="group" aria-label="함께한 두 장의 사진">
-          <div class="photo-shell photo-shell--album" data-photo>
-            <img src="./assets/photos/wedding_2.jpg" width="1080" height="1350"
-                 alt="함께한 순간을 담은 두 번째 사진" loading="lazy" decoding="async"
-                 style="--photo-position: center center;">
-            <div class="photo-placeholder" aria-hidden="true">
-              <span>PHOTO 02</span><small>앨범 왼쪽</small>
-            </div>
-          </div>
-          <div class="photo-shell photo-shell--album" data-photo>
-            <img src="./assets/photos/wedding_3.jpg" width="1080" height="1350"
-                 alt="함께한 순간을 담은 세 번째 사진" loading="lazy" decoding="async"
-                 style="--photo-position: center center;">
-            <div class="photo-placeholder" aria-hidden="true">
-              <span>PHOTO 03</span><small>앨범 오른쪽</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-copy reveal">
-          <p class="kicker">둘이, 한 팀이 되었습니다</p>
-          <h2 id="story-one-title">평생의 전속<br>사진사를 구했습니다.</h2>
-          <p>서로의 사진을 제일 못 찍어 주던 두 사람이, 이제 평생 서로의 전속 사진사가 되기로 했습니다.</p>
-          <p class="side-note">사진 실력은 계속 협의 중입니다.</p>
-        </div>
-      </section>
-
-      <!-- CHAPTER 02: wedding_4.jpg -->
-      <section class="page story" aria-labelledby="story-two-title">
-        <div class="page-meta reveal" aria-hidden="true">
-          <span>CHAPTER 02</span><span>02 / 05</span>
-        </div>
-
-        <div class="photo-shell photo-shell--tilt-right reveal" data-photo>
-          <img src="./assets/photos/wedding_4.jpg" width="1080" height="1350"
-               alt="두 사람의 네 번째 사진" loading="lazy" decoding="async"
-               style="--photo-position: center center;">
-          <div class="photo-placeholder" aria-hidden="true">
-            <span>PHOTO 04</span><small>네 번째 사진</small>
-          </div>
-        </div>
-
-        <div class="story-copy reveal">
-          <p class="kicker">다른 점도, 닮은 점도</p>
-          <h2 id="story-two-title">잘 맞아서보다,<br>잘 맞춰 가고 싶어서.</h2>
-          <p>취향은 꽤 다르지만 웃음 포인트는 묘하게 같습니다. 완벽하게 잘 맞아서가 아니라, 맞춰 가는 일이 즐거워서 결혼합니다.</p>
-          <p class="side-note">메뉴 정하기는 여전히 30분.</p>
-        </div>
-      </section>
-
-      <!-- CHAPTER 03: 소식지의 핵심 안내문 -->
-      <section class="page family-note" aria-labelledby="family-note-title">
-        <div class="page-meta reveal" aria-hidden="true">
-          <span>CHAPTER 03</span><span>03 / 05</span>
+          <span>CHAPTER 01</span>
+          <span>01 / 04</span>
         </div>
 
         <div class="letter reveal">
           <p class="letter-mark" aria-hidden="true">*</p>
-          <p class="kicker">작은 결혼식 안내</p>
-          <h2 id="family-note-title">초대 대신,<br>소식을 전합니다.</h2>
+          <p class="kicker">작은 결혼식, 감사의 인사</p>
+          <h2 id="family-title">초대 대신,<br>소식을 전합니다.</h2>
+
           <div class="letter-body">
-            <p>저희는 가까운 가족들만 모시고 조용히 작은 결혼식을 올립니다.</p>
-            <p>소중한 분들을 모두 한자리에 모시지 못해 아쉽지만, 기쁜 소식만큼은 꼭 나누고 싶었습니다.</p>
-            <p>어디에서든 한 번 웃으며 축하해 주시는 마음이면 저희에게 충분합니다.</p>
+            <p>양가 가족분들만 모시고 소박하고 조용하게 예식을 진행하게 되었습니다.</p>
+
+            <p>마음 같아서는 소중한 모든 분들을 직접 모시고 기쁨을 나누고 싶었으나, 두 사람의 뜻에 따라 가족 중심의 작고 정갈한 자리를 마련하게 된 점 넓은 마음으로 양해 부탁드립니다.</p>
+
+            <p>멀리서 전해주시는 따뜻한 축하와 격려의 마음을 가슴 깊이 간직하며, 서로 아끼고 베풀며 예쁘게 살아가겠습니다.</p>
           </div>
-          <p class="letter-highlight">초대의 부담 없이,<br>축하의 마음만 감사히 받겠습니다.</p>
         </div>
       </section>
 
-      <!-- CHAPTER 04: wedding_5.jpg + wedding_6.jpg -->
-      <section class="page story closing" aria-labelledby="closing-title">
+      <!-- 3. BRIDE AND GROOM INTRODUCTIONS -->
+      <section class="page introductions" aria-labelledby="intro-title">
         <div class="page-meta reveal" aria-hidden="true">
-          <span>CHAPTER 04</span><span>04 / 05</span>
+          <span>CHAPTER 02</span>
+          <span>02 / 04</span>
         </div>
 
-        <div class="photo-album reveal" role="group" aria-label="앞으로의 시간을 담은 두 장의 사진">
-          <div class="photo-shell photo-shell--album" data-photo>
-            <img src="./assets/photos/wedding_5.jpg" width="1080" height="1350"
-                 alt="두 사람의 다섯 번째 사진" loading="lazy" decoding="async"
-                 style="--photo-position: center center;">
+        <div class="section-heading reveal">
+          <p class="kicker">ABOUT US</p>
+          <h2 id="intro-title">두 사람을<br>소개합니다.</h2>
+        </div>
+
+        <div class="profile-grid reveal">
+
+          <!-- GROOM -->
+          <article class="profile-card">
+            <div class="photo-shell photo-shell--album" data-photo>
+              <img
+                src="./assets/photos/wedding_2.jpg"
+                alt="신랑 소개 사진"
+                width="1080"
+                height="1350"
+                loading="lazy"
+                decoding="async"
+                style="--photo-position:center center"
+              >
+              <div class="photo-placeholder" aria-hidden="true">
+                <span>PHOTO 02</span>
+                <small>신랑</small>
+              </div>
+            </div>
+
+            <p class="profile-role">THE GROOM · 신랑</p>
+            <h3>[신랑 이름]</h3>
+            <p>신부 [신부 이름]의 웃음을 가장 좋아하는 소탈한 사람 [신랑 이름]입니다. [신부 이름]를 만나 더 넓고 따뜻한 시선으로 세상을 보게 되었습니다.</p>
+          </article>
+
+          <!-- BRIDE -->
+          <article class="profile-card">
+            <div class="photo-shell photo-shell--album" data-photo>
+              <img
+                src="./assets/photos/wedding_3.jpg"
+                alt="신부 소개 사진"
+                width="1080"
+                height="1350"
+                loading="lazy"
+                decoding="async"
+                style="--photo-position:center center"
+              >
+              <div class="photo-placeholder" aria-hidden="true">
+                <span>PHOTO 03</span>
+                <small>신부</small>
+              </div>
+            </div>
+
+            <p class="profile-role">THE BRIDE · 신부</p>
+            <h3>[신부 이름]</h3>
+            <p>신랑 김성빈의 든든함 속에 매일 새로운 행복을 찾아가는 최윤영입니다. 함께 걷는 길이 언제나 즐거울 것 같아 결혼을 결심했습니다.</p>
+          </article>
+
+        </div>
+
+        <!-- COUPLE Q&A -->
+        <div class="qa-box reveal">
+          <p class="kicker">OUR LITTLE Q&amp;A</p>
+          <dl>
+            <div class="qa-item">
+              <dt>처음 만난 날</dt>
+              <dd>20XX년 봄, 따뜻했던 햇살 속에서...</dd>
+            </div>
+
+            <div class="qa-item">
+              <dt>서로의 첫인상</dt>
+              <dd>
+                <span class="qa-speaker">신랑이 본 신부</span>
+                “웃는 모습이 참 예쁜 사람”
+              </dd>
+              <dd>
+                <span class="qa-speaker">신부가 본 신랑</span>
+                “다정하고 듬직한 사람”
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 4. GALLERY -->
+      <section class="page gallery" aria-labelledby="gallery-title">
+        <div class="page-meta reveal" aria-hidden="true">
+          <span>CHAPTER 03</span>
+          <span>03 / 04</span>
+        </div>
+
+        <div class="section-heading reveal">
+          <p class="kicker">OUR STORY</p>
+          <h2 id="gallery-title">함께 걸어온<br>우리의 이야기.</h2>
+          <p>작은 순간들이 모여 오늘의 저희가 되었습니다.</p>
+        </div>
+
+        <!-- GALLERY IMAGE 4 -->
+        <figure class="gallery-beat reveal">
+          <div class="photo-shell photo-shell--large" data-photo>
+            <img
+              src="./assets/photos/wedding_4.jpg"
+              alt="함께한 추억을 담은 사진"
+              width="1080"
+              height="1350"
+              loading="lazy"
+              decoding="async"
+            >
             <div class="photo-placeholder" aria-hidden="true">
-              <span>PHOTO 05</span><small>앨범 왼쪽</small>
+              <span>PHOTO 04</span>
+              <small>우리의 시작</small>
             </div>
           </div>
-          <div class="photo-shell photo-shell--album" data-photo>
-            <img src="./assets/photos/wedding_6.jpg" width="1080" height="1350"
-                 alt="두 사람의 여섯 번째 사진" loading="lazy" decoding="async"
-                 style="--photo-position: center center;">
+          <figcaption>처음엔 우연이었지만, 어느새 가장 기다려지는 하루가 되었습니다.</figcaption>
+        </figure>
+
+        <!-- GALLERY IMAGES 5 AND 6 -->
+        <figure class="gallery-beat reveal">
+          <div class="photo-album">
+
+            <div class="photo-shell photo-shell--album" data-photo>
+              <img
+                src="./assets/photos/wedding_5.jpg"
+                alt="다섯 번째 추억 사진"
+                width="1080"
+                height="1350"
+                loading="lazy"
+                decoding="async"
+              >
+              <div class="photo-placeholder" aria-hidden="true">
+                <span>PHOTO 05</span>
+              </div>
+            </div>
+
+            <div class="photo-shell photo-shell--album" data-photo>
+              <img
+                src="./assets/photos/wedding_6.jpg"
+                alt="여섯 번째 추억 사진"
+                width="1080"
+                height="1350"
+                loading="lazy"
+                decoding="async"
+              >
+              <div class="photo-placeholder" aria-hidden="true">
+                <span>PHOTO 06</span>
+              </div>
+            </div>
+
+          </div>
+          <figcaption>함께 웃고, 함께 고민하며 서로의 가장 좋은 친구가 되었습니다.</figcaption>
+        </figure>
+
+        <!-- GALLERY FINAL IMAGE 7 -->
+        <figure class="gallery-beat reveal">
+          <div class="photo-shell photo-shell--large photo-shell--last" data-photo>
+            <img
+              src="./assets/photos/wedding_7.jpg"
+              alt="결혼을 앞둔 두 사람의 마지막 사진"
+              width="1080"
+              height="1350"
+              loading="lazy"
+              decoding="async"
+            >
             <div class="photo-placeholder" aria-hidden="true">
-              <span>PHOTO 06</span><small>앨범 오른쪽</small>
+              <span>PHOTO 07</span>
+              <small>우리의 새로운 시작</small>
             </div>
           </div>
-        </div>
+          <figcaption>이제 서로의 평생 같은 편이 되어 새로운 이야기를 시작합니다.</figcaption>
+        </figure>
 
-        <div class="story-copy story-copy--center reveal">
-          <p class="kicker">그리고 앞으로도</p>
-          <h2 id="closing-title">잘 먹고, 자주 웃고,<br>언제나 같은 편으로.</h2>
-          <p>저희답게 재미있고 다정하게 잘 살아가겠습니다.</p>
+        <div class="signature reveal">
+          <span>2026. XX. XX</span>
+          <strong>신랑 이름 · 신부 이름 드림</strong>
         </div>
       </section>
 
-      <!-- CHAPTER 05 / FINALE: wedding_7.jpg -->
-      <section class="page finale" aria-labelledby="finale-title">
+      <!-- 5. CONGRATULATIONS GUESTBOOK -->
+      <section class="page guestbook" aria-labelledby="guestbook-title">
         <div class="page-meta reveal" aria-hidden="true">
-          <span>FINALE</span><span>05 / 05</span>
+          <span>CHAPTER 04</span>
+          <span>04 / 04</span>
         </div>
 
-        <div class="photo-shell photo-shell--finale reveal" data-photo>
-          <img src="./assets/photos/wedding_7.jpg" width="1080" height="1350"
-               alt="마지막 인사를 전하는 일곱 번째 사진" loading="lazy" decoding="async"
-               style="--photo-position: center center;">
-          <div class="photo-placeholder" aria-hidden="true">
-            <span>PHOTO 07</span><small>마지막 사진</small>
-          </div>
+        <div class="section-heading reveal">
+          <p class="kicker">WISHES &amp; MESSAGES</p>
+          <h2 id="guestbook-title">따뜻한 한마디를<br>남겨주세요.</h2>
+          <p>멀리서 전해주시는 축하도 두 사람에게 큰 선물이 됩니다.<br>편하게 축하의 마음을 남겨주세요.</p>
         </div>
 
-        <div class="story-copy story-copy--center reveal">
-          <p class="kicker">WITH LOVE, ALWAYS</p>
-          <h2 id="finale-title">저희의 새로운 시작을<br>따뜻하게 지켜봐 주세요.</h2>
-          <p>멀리서 전해 주시는 마음까지 오래도록 간직하겠습니다.<br>고맙습니다.</p>
-          <!-- 실제 이름과 날짜로 바꿔 주세요. -->
-          <div class="signature">
-            <span>2026. 12. 26</span>
-            <strong>김성빈 · 최윤영 드림</strong>
+        <form class="guestbook-form reveal" id="guestbook-form">
+          <label for="guest-name">이름 또는 별명</label>
+          <input
+            id="guest-name"
+            name="name"
+            type="text"
+            minlength="1"
+            maxlength="30"
+            placeholder="이름을 입력해 주세요"
+            autocomplete="name"
+            required
+          >
+
+          <label for="guest-message">축하 메시지</label>
+          <textarea
+            id="guest-message"
+            name="message"
+            rows="4"
+            minlength="2"
+            maxlength="300"
+            placeholder="두 사람에게 전하고 싶은 한마디"
+            required
+          ></textarea>
+
+          <p class="form-note">공개되는 방명록입니다. 개인정보는 적지 말아 주세요. 등록된 글은 확인 후 공개됩니다.</p>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="guest-website">웹사이트 (비워두세요)</label>
+            <input id="guest-website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
+
+          <button class="submit-button" id="guest-submit" type="submit" disabled>
+            축하 메시지 남기기
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite">방명록을 준비 중입니다.</p>
+        </form>
+
+        <div class="message-board reveal" aria-labelledby="messages-title">
+          <div class="message-board-heading">
+            <h3 id="messages-title">도착한 축하의 마음</h3>
+            <button type="button" id="refresh-messages" class="refresh-button" disabled>
+              새로고침
+            </button>
+          </div>
+          <p class="messages-status" id="messages-status" role="status" aria-live="polite"></p>
+          <ul class="message-list" id="message-list"></ul>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
-      <p aria-hidden="true">FIN.</p>
-      <button class="share-button" type="button" id="share-button"
-              aria-describedby="share-status">이 소식 공유하기</button>
-      <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
-      <a href="#top" id="back-to-top">처음으로 돌아가기</a>
+      <p class="fin">FIN.</p>
+      <button type="button" id="share-button" class="share-button">
+        소식 공유하기
+      </button>
+      <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
+      <a id="back-to-top" href="#top">처음으로 돌아가기</a>
     </footer>
+
   </div>
 </body>
 </html>
