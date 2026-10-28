@@ -4,8 +4,8 @@
 
   // Enter your Supabase Project URL and publishable key.
   // Never put a service_role or secret key here.
-  const SUPABASE_URL = "";
-  const SUPABASE_PUBLISHABLE_KEY = "";
+  const SUPABASE_URL = "https://clestcghqwaptwliwcva.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_f1Uof1GHbOUGxtibQzlSRA_S2sGDluA";
 
   const root = document.documentElement;
   root.classList.add("js");
