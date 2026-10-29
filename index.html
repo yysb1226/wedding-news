@@ -153,171 +153,230 @@
              STORY 01: Eight-image photo slider
              ===================================== -->
 
-        <figure class="gallery-beat gallery-beat--book reveal">
+        
+<!-- STORY 01: Seven-image photo slider -->
 
-          <div
-            class="photo-book"
-            id="story-photo-book"
-            role="region"
-            aria-roledescription="사진 슬라이더"
-            aria-label="우리의 첫 번째 이야기 사진 앨범"
+<figure class="gallery-beat gallery-beat--book reveal">
+
+  <div
+    class="photo-book"
+    id="story-photo-book"
+    role="region"
+    aria-roledescription="사진 슬라이더"
+    aria-label="우리의 이야기 사진 앨범"
+  >
+
+    <div
+      class="book-stage"
+      id="book-stage"
+      tabindex="0"
+      aria-label="왼쪽이나 오른쪽으로 밀거나 방향키로 사진을 넘겨보세요."
+    >
+
+      <!-- Slide 01 -->
+      <div
+        class="photo-shell photo-slide is-active"
+        data-photo
+        aria-hidden="false"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4.jpg"
+            alt="우리의 이야기 첫 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
           >
+        </div>
 
-            <div
-              class="book-stage"
-              id="book-stage"
-              tabindex="0"
-              aria-label="사진 앨범. 왼쪽이나 오른쪽으로 밀거나 방향키로 사진을 넘겨보세요."
-            >
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 01</span>
+        </div>
+      </div>
 
-              <!-- Slide 01 -->
-              <div
-                class="photo-shell photo-slide is-active"
-                data-photo
-                aria-hidden="false"
-              >
-                <img
-                  src="./assets/photos/wedding_4.jpg"
-                  alt="우리의 이야기 첫 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 01</span>
-                </div>
-              </div>
+      <!-- Slide 02 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_2.jpg"
+            alt="우리의 이야기 두 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
-              <!-- Slide 02 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_2.jpg"
-                  alt="우리의 이야기 두 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 02</span>
-                </div>
-              </div>
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 02</span>
+        </div>
+      </div>
 
-              <!-- Slide 03 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_3.jpg"
-                  alt="우리의 이야기 세 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 03</span>
-                </div>
-              </div>
+      <!-- Slide 03 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_3.jpg"
+            alt="우리의 이야기 세 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
-              <!-- Slide 04 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_4.jpg"
-                  alt="우리의 이야기 네 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 04</span>
-                </div>
-              </div>
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 03</span>
+        </div>
+      </div>
 
-              <!-- Slide 05 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_5.jpg"
-                  alt="우리의 이야기 다섯 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 05</span>
-                </div>
-              </div>
+      <!-- Slide 04 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_4.jpg"
+            alt="우리의 이야기 네 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
-              <!-- Slide 06 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_6.jpg"
-                  alt="우리의 이야기 여섯 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 06</span>
-                </div>
-              </div>
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 04</span>
+        </div>
+      </div>
 
-              <!-- Slide 07 -->
-              <div class="photo-shell photo-slide"
-                   data-photo aria-hidden="true">
-                <img
-                  src="./assets/photos/wedding_4_7.jpg"
-                  alt="우리의 이야기 일곱 번째 사진"
-                  width="1080" height="1350"
-                  loading="lazy" decoding="async"
-                >
-                <div class="photo-placeholder" aria-hidden="true">
-                  <span>ALBUM 07</span>
-                </div>
-              </div>
-            </div>
+      <!-- Slide 05 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_5.jpg"
+            alt="우리의 이야기 다섯 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 05</span>
+        </div>
+      </div>
 
-            <!-- Slider controls -->
-            <div class="book-controls">
+      <!-- Slide 06 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_6.jpg"
+            alt="우리의 이야기 여섯 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
-              <button
-                type="button"
-                id="book-prev"
-                class="book-arrow"
-                aria-label="이전 사진"
-              >‹</button>
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 06</span>
+        </div>
+      </div>
 
-              <div class="book-position">
-                <span
-                  class="book-counter"
-                  id="book-counter"
-                  aria-live="polite"
-                  aria-atomic="true"
-                >01 / 08</span>
+      <!-- Slide 07 -->
+      <div
+        class="photo-shell photo-slide"
+        data-photo
+        aria-hidden="true"
+      >
+        <div class="slide-image-window">
+          <img
+            src="./assets/photos/wedding_4_7.jpg"
+            alt="우리의 이야기 일곱 번째 사진"
+            width="1080"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
 
-                <span class="book-hint">
-                  사진을 옆으로 넘겨보세요
-                </span>
-              </div>
+        <div class="photo-placeholder" aria-hidden="true">
+          <span>ALBUM 07</span>
+        </div>
+      </div>
 
-              <button
-                type="button"
-                id="book-next"
-                class="book-arrow"
-                aria-label="다음 사진"
-              >›</button>
+    </div>
 
-            </div>
+    <!-- Slider controls -->
+    <div class="book-controls">
 
-            <div
-              class="book-dots"
-              id="book-dots"
-              aria-label="사진 선택"
-            ></div>
+      <button
+        type="button"
+        id="book-prev"
+        class="book-arrow"
+        aria-label="이전 사진"
+      >‹</button>
 
-          </div>
+      <div class="book-position">
 
-          <figcaption>
-            작은 순간들이 모여 오늘의 저희가 되었습니다.
-          </figcaption>
+        <span
+          class="book-counter"
+          id="book-counter"
+          aria-live="polite"
+          aria-atomic="true"
+        >01 / 07</span>
 
-        </figure>
+        <span class="book-hint">
+          사진을 옆으로 넘겨보세요
+        </span>
+
+      </div>
+
+      <button
+        type="button"
+        id="book-next"
+        class="book-arrow"
+        aria-label="다음 사진"
+      >›</button>
+
+    </div>
+
+    <div
+      class="book-dots"
+      id="book-dots"
+      aria-label="사진 선택"
+    ></div>
+
+  </div>
+
+  <figcaption>
+    작은 순간들이 모여 오늘의 저희가 되었습니다.
+  </figcaption>
+
+</figure>
+
 
 
         <!-- =====================================
