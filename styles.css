@@ -1232,3 +1232,43 @@ html:not(.js) .book-dots {
     break-inside: avoid;
   }
 }
+
+
+/* ============================================
+   SLIDER PHOTO CROPPING
+   wedding_4.jpg ~ wedding_4_7.jpg
+   ============================================ */
+
+/* 확대된 이미지가 액자 바깥으로 나오지 않도록 설정 */
+.book-stage .slide-image-window {
+  position: absolute;
+
+  inset: clamp(7px, 2vw, 10px);
+
+  overflow: hidden;
+
+  background: var(--paper-deep);
+}
+
+/* 슬라이더 사진에만 확대 적용 */
+.book-stage .slide-image-window img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /* 확대 비율 */
+  transform: scale(var(--slider-zoom, 1.13));
+
+  /*
+    확대 기준 위치:
+    50% = 가로 중앙
+    12% = 세로 위쪽을 기준으로 확대
+
+    따라서 이미지 아래쪽이 더 많이 잘립니다.
+  */
+  transform-origin: var(--slider-origin, 50% 12%);
+}
