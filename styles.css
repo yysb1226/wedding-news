@@ -8,27 +8,22 @@
   --sage: #68745f;
   --line: rgba(47,41,37,.18);
   --shadow: 0 18px 50px rgba(57,43,35,.14);
-
-  --sans: "Pretendard Variable", "Apple SD Gothic Neo",
-          "Noto Sans KR", sans-serif;
-  --serif: "Noto Serif KR", "AppleMyungjo",
-           "Nanum Myeongjo", serif;
+  --sans: "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --serif: "Noto Serif KR", "AppleMyungjo", "Nanum Myeongjo", serif;
 }
 
-/* Global */
+/* ==========================================
+   GLOBAL
+   ========================================== */
 
 * { box-sizing: border-box; }
-
-html {
-  background: #d9d0c5;
-  scroll-behavior: smooth;
-}
+html { background: #d9d0c5; scroll-behavior: smooth; }
 
 body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: var(--sans);
+  font-family: var(--serif);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.82;
@@ -59,9 +54,7 @@ button { -webkit-tap-highlight-color: transparent; }
   transform: translateY(-160%);
 }
 
-.skip-link:focus {
-  transform: translateY(0);
-}
+.skip-link:focus { transform: translateY(0); }
 
 /* Reading progress */
 
@@ -126,7 +119,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .running-head { margin-bottom: 24px; }
 .page-meta { margin-bottom: 30px; }
 
-/* Shared photo frames */
+/* ==========================================
+   SHARED PHOTO FRAMES
+   ========================================== */
 
 .photo-shell {
   position: relative;
@@ -161,9 +156,7 @@ button { -webkit-tap-highlight-color: transparent; }
   transform: rotate(-.6deg);
 }
 
-.photo-shell--last {
-  transform: rotate(.5deg);
-}
+.photo-shell--last { transform: rotate(.5deg); }
 
 /* Photo placeholders */
 
@@ -188,9 +181,7 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 
 .photo-placeholder span,
-.photo-placeholder small {
-  position: relative;
-}
+.photo-placeholder small { position: relative; }
 
 .photo-placeholder span {
   font-size: .66rem;
@@ -198,31 +189,17 @@ button { -webkit-tap-highlight-color: transparent; }
   letter-spacing: .16em;
 }
 
-.photo-placeholder small {
-  font-size: .78rem;
-}
+.photo-placeholder small { font-size: .78rem; }
 
-.js .photo-shell img {
-  opacity: 0;
-}
+.js .photo-shell img { opacity: 0; }
+.js .photo-shell .photo-placeholder { display: grid; }
+.js .photo-shell.is-loaded img { opacity: 1; }
+.js .photo-shell.is-loaded .photo-placeholder { display: none; }
+.js .photo-shell.is-missing img { visibility: hidden; }
 
-.js .photo-shell .photo-placeholder {
-  display: grid;
-}
-
-.js .photo-shell.is-loaded img {
-  opacity: 1;
-}
-
-.js .photo-shell.is-loaded .photo-placeholder {
-  display: none;
-}
-
-.js .photo-shell.is-missing img {
-  visibility: hidden;
-}
-
-/* Magazine cover */
+/* ==========================================
+   MAGAZINE COVER
+   ========================================== */
 
 .visually-hidden {
   position: absolute;
@@ -246,9 +223,7 @@ button { -webkit-tap-highlight-color: transparent; }
   padding-bottom: max(74px,calc(env(safe-area-inset-bottom) + 58px));
 }
 
-.cover--magazine .running-head {
-  margin-bottom: 13px;
-}
+.cover--magazine .running-head { margin-bottom: 13px; }
 
 .photo-shell--cover-full {
   width: 100%;
@@ -274,9 +249,7 @@ button { -webkit-tap-highlight-color: transparent; }
   object-position: center;
 }
 
-.photo-shell--cover-full .photo-placeholder {
-  inset: 0;
-}
+.photo-shell--cover-full .photo-placeholder { inset: 0; }
 
 .cover-copy--minimal {
   position: relative;
@@ -287,22 +260,33 @@ button { -webkit-tap-highlight-color: transparent; }
   text-align: center;
 }
 
+/* Parents and couple names */
+
 .cover-copy--minimal .names {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  display: grid;
+  justify-items: center;
+  gap: .18rem;
   margin: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: .96rem;
+  font-size: clamp(1.05rem,3.8vw,1.3rem);
   font-weight: 500;
-  letter-spacing: -.02em;
+  letter-spacing: -.055em;
+  line-height: 1.95;
 }
 
-.cover-copy--minimal .names i {
+.cover-copy--minimal .family-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.cover-copy--minimal .family-line strong { font-weight: 600; }
+
+.cover-copy--minimal .family-separator {
+  padding-inline: .14em;
   color: var(--ink-soft);
-  font: normal 500 .66rem var(--sans);
+  font-size: .82em;
+  font-weight: 500;
 }
 
 .scroll-cue {
@@ -320,11 +304,11 @@ button { -webkit-tap-highlight-color: transparent; }
   text-decoration: none;
 }
 
-.scroll-cue span {
-  animation: nudge 1.8s ease-in-out infinite;
-}
+.scroll-cue span { animation: nudge 1.8s ease-in-out infinite; }
 
-/* Typography */
+/* ==========================================
+   TYPOGRAPHY
+   ========================================== */
 
 .eyebrow, .kicker {
   margin: 0 0 13px;
@@ -335,11 +319,10 @@ button { -webkit-tap-highlight-color: transparent; }
   letter-spacing: .12em;
 }
 
-.section-heading {
-  margin-bottom: 37px;
-}
+.section-heading { margin-bottom: 37px; }
 
-.section-heading h2, .letter h2 {
+.section-heading h2,
+.letter h2 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 500;
@@ -355,7 +338,9 @@ button { -webkit-tap-highlight-color: transparent; }
   line-height: 1.9;
 }
 
-/* Chapter 01: Family notice */
+/* ==========================================
+   CHAPTER 01: FAMILY NOTICE
+   ========================================== */
 
 .family-note {
   background: var(--sage);
@@ -403,15 +388,12 @@ button { -webkit-tap-highlight-color: transparent; }
 .letter-body p { margin: 0 0 20px; }
 .letter-body p:last-child { margin-bottom: 0; }
 
-/* Chapter 02: Story gallery */
+/* ==========================================
+   CHAPTER 02: STORY GALLERY
+   ========================================== */
 
-.gallery {
-  background: #f8f5ee;
-}
-
-.gallery-beat {
-  margin: 0 0 72px;
-}
+.gallery { background: #f8f5ee; }
+.gallery-beat { margin: 0 0 72px; }
 
 .gallery-beat figcaption {
   max-width: 475px;
@@ -423,7 +405,7 @@ button { -webkit-tap-highlight-color: transparent; }
   line-height: 1.95;
 }
 
-/* Side-by-side photos */
+/* Side-by-side photo albums */
 
 .photo-album {
   display: grid;
@@ -446,13 +428,8 @@ button { -webkit-tap-highlight-color: transparent; }
   inset: clamp(5px,1.2vw,8px);
 }
 
-.photo-album .photo-shell:first-child {
-  transform: rotate(-1deg);
-}
-
-.photo-album .photo-shell:last-child {
-  transform: rotate(1deg);
-}
+.photo-album .photo-shell:first-child { transform: rotate(-1deg); }
+.photo-album .photo-shell:last-child { transform: rotate(1deg); }
 
 /* Closing signature */
 
@@ -471,12 +448,12 @@ button { -webkit-tap-highlight-color: transparent; }
   letter-spacing: .13em;
 }
 
-.signature strong {
-  font: 500 1.04rem var(--serif);
-}
+.signature strong { font: 500 1.04rem var(--serif); }
 
 /* ==========================================
-   PHOTO BOOK SLIDER - AUTO RATIO 4:5 / 5:4
+   PHOTO BOOK SLIDER
+   Landscape: 5:4
+   Portrait: 4:5
    ========================================== */
 
 .photo-book {
@@ -486,38 +463,24 @@ button { -webkit-tap-highlight-color: transparent; }
 
 .book-stage {
   position: relative;
-
-  /* Values updated automatically by script.js */
-  width: min(100%, var(--book-width-cap, 485px));
-  aspect-ratio: var(--book-ratio, 4 / 5);
+  width: min(100%,var(--book-width-cap,485px));
+  aspect-ratio: var(--book-ratio,4 / 5);
   height: auto;
-
   margin-inline: auto;
-
-  transition:
-    width .35s ease,
-    aspect-ratio .35s ease;
-
+  transition: width .35s ease,aspect-ratio .35s ease;
   background: #e5dbce;
   perspective: 1350px;
   isolation: isolate;
-
   box-shadow:
     8px 8px 0 #e4d9ca,
     14px 14px 0 #d8cbbc,
     0 23px 42px rgba(57,43,35,.15);
-
   touch-action: pan-y;
   cursor: grab;
 }
 
-.book-stage:active {
-  cursor: grabbing;
-}
-
-.book-stage:focus-visible {
-  outline-offset: 7px;
-}
+.book-stage:active { cursor: grabbing; }
+.book-stage:focus-visible { outline-offset: 7px; }
 
 .book-stage::before {
   content: "";
@@ -543,24 +506,19 @@ button { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
-
   box-shadow: none;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-
   transform-style: preserve-3d;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* Supports HTML with slide-image-window */
-
 .book-stage .photo-slide .slide-image-window {
   position: absolute;
   inset: clamp(7px,2vw,10px);
   overflow: hidden;
-
   display: grid;
   place-items: center;
   background: #e8dfd2;
@@ -571,26 +529,22 @@ button { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   height: 100%;
   max-width: none;
-
   object-fit: contain;
   object-position: center;
   transform: none;
   background: transparent;
 }
 
-/* Supports HTML without slide-image-window */
+/* Fallback for slides without inner window */
 
 .book-stage .photo-slide > img {
   width: 100%;
   height: 100%;
-
   object-fit: contain;
   object-position: center;
   transform: none;
   background: #e8dfd2;
 }
-
-/* Active slide */
 
 .book-stage .photo-slide.is-active {
   visibility: visible;
@@ -602,7 +556,7 @@ button { -webkit-tap-highlight-color: transparent; }
   visibility: visible;
   opacity: 1;
   z-index: 3;
-  will-change: transform, opacity;
+  will-change: transform,opacity;
 }
 
 .book-stage .photo-slide.is-turning-next {
@@ -633,10 +587,8 @@ button { -webkit-tap-highlight-color: transparent; }
   width: 46px;
   height: 46px;
   flex: 0 0 46px;
-
   border: 1px solid #c9bbae;
   border-radius: 50%;
-
   background: #fffaf3;
   color: var(--ink);
   font-size: 2rem;
@@ -645,14 +597,8 @@ button { -webkit-tap-highlight-color: transparent; }
   cursor: pointer;
 }
 
-.book-arrow:hover:not(:disabled) {
-  background: #eee6dc;
-}
-
-.book-arrow:disabled {
-  opacity: .45;
-  cursor: default;
-}
+.book-arrow:hover:not(:disabled) { background: #eee6dc; }
+.book-arrow:disabled { opacity: .45; cursor: default; }
 
 .book-position {
   display: grid;
@@ -698,11 +644,7 @@ button { -webkit-tap-highlight-color: transparent; }
   height: 6px;
   background: #cabcb0;
   border-radius: 50%;
-
-  transition:
-    width .18s,
-    background .18s,
-    border-radius .18s;
+  transition: width .18s,background .18s,border-radius .18s;
 }
 
 .book-dot[aria-current="true"]::after {
@@ -716,43 +658,25 @@ html:not(.js) .book-dots {
   display: none;
 }
 
-/* Page flip */
+/* Page flip animations */
 
 @keyframes book-turn-next {
-  0% {
-    transform: rotateY(0);
-    opacity: 1;
-  }
-  65% {
-    opacity: .96;
-  }
-  100% {
-    transform: rotateY(-96deg);
-    opacity: .4;
-  }
+  0% { transform: rotateY(0); opacity: 1; }
+  65% { opacity: .96; }
+  100% { transform: rotateY(-96deg); opacity: .4; }
 }
 
 @keyframes book-turn-prev {
-  0% {
-    transform: rotateY(0);
-    opacity: 1;
-  }
-  65% {
-    opacity: .96;
-  }
-  100% {
-    transform: rotateY(96deg);
-    opacity: .4;
-  }
+  0% { transform: rotateY(0); opacity: 1; }
+  65% { opacity: .96; }
+  100% { transform: rotateY(96deg); opacity: .4; }
 }
 
 /* ==========================================
-   CHAPTER 03 - GUESTBOOK
+   CHAPTER 03: GUESTBOOK
    ========================================== */
 
-.guestbook {
-  background: var(--paper-deep);
-}
+.guestbook { background: var(--paper-deep); }
 
 .guestbook-form {
   position: relative;
@@ -819,14 +743,8 @@ html:not(.js) .book-dots {
   font-weight: 700;
 }
 
-.submit-button:hover:not(:disabled) {
-  background: #516048;
-}
-
-.submit-button:disabled {
-  cursor: not-allowed;
-  opacity: .6;
-}
+.submit-button:hover:not(:disabled) { background: #516048; }
+.submit-button:disabled { cursor: not-allowed; opacity: .6; }
 
 .form-status,
 .messages-status {
@@ -836,11 +754,7 @@ html:not(.js) .book-dots {
   line-height: 1.7;
 }
 
-/* Approved messages */
-
-.message-board {
-  margin-top: 45px;
-}
+.message-board { margin-top: 45px; }
 
 .message-board-heading {
   display: flex;
@@ -910,11 +824,12 @@ html:not(.js) .book-dots {
   line-height: 1.85;
 }
 
-/* Footer */
+/* ==========================================
+   FOOTER
+   ========================================== */
 
 .site-footer {
-  padding: 45px 24px
-    max(38px,calc(env(safe-area-inset-bottom) + 25px));
+  padding: 45px 24px max(38px,calc(env(safe-area-inset-bottom) + 25px));
   background: var(--ink);
   color: #faf6ed;
   text-align: center;
@@ -954,12 +869,14 @@ html:not(.js) .book-dots {
   text-underline-offset: 4px;
 }
 
-/* Scroll animations */
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
 
 .motion-ready .reveal {
   opacity: 0;
   translate: 0 22px;
-  transition: opacity .7s ease, translate .7s ease;
+  transition: opacity .7s ease,translate .7s ease;
 }
 
 .motion-ready .reveal.is-visible {
@@ -972,9 +889,11 @@ html:not(.js) .book-dots {
   50% { transform: translateY(3px); }
 }
 
-/* Responsive */
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
-@media (min-width: 681px) {
+@media (min-width:681px) {
   body { padding-block: 24px; }
 
   .site-shell {
@@ -987,25 +906,40 @@ html:not(.js) .book-dots {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width:360px) {
   body { font-size: 16px; }
-  .cover, .page { padding-inline: 17px; }
-  .section-heading h2, .letter h2 { font-size: 1.88rem; }
-  .photo-album { padding: 9px; gap: 9px; }
+  .cover,.page { padding-inline: 17px; }
+
+  .section-heading h2,
+  .letter h2 {
+    font-size: 1.88rem;
+  }
+
+  .photo-album {
+    padding: 9px;
+    gap: 9px;
+  }
+
+  .cover-copy--minimal .names {
+    font-size: 1rem;
+    letter-spacing: -.065em;
+  }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
 
-  *, *::before, *::after {
+  *,*::before,*::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
 
   .book-stage { transition: none; }
 }
-
-/* Optional AI-generated photo attribution */
 
 .gallery-beat .ai-generated-note {
   display: block;
@@ -1014,10 +948,12 @@ html:not(.js) .book-dots {
   font: 400 .73rem/1.6 var(--sans);
 }
 
-/* Print */
+/* ==========================================
+   PRINT
+   ========================================== */
 
 @media print {
-  html, body { background: white; }
+  html,body { background: white; }
 
   .site-shell {
     width: 100%;
@@ -1057,4 +993,53 @@ html:not(.js) .book-dots {
     opacity: 1 !important;
     visibility: visible !important;
   }
+}
+
+/* ==========================================
+   UNIFIED NARRATIVE TYPOGRAPHY
+   Noto Serif KR
+   ========================================== */
+
+/* Chapter 01 and photo captions */
+
+.letter-body,
+.section-heading > p,
+.gallery-beat figcaption,
+.cover-copy--minimal .names {
+  font-family: var(--serif);
+}
+
+/* All Chapter 03 guestbook text */
+
+.guestbook,
+.guestbook .section-heading > p,
+.guestbook .guestbook-form label,
+.guestbook .guestbook-form input,
+.guestbook .guestbook-form textarea,
+.guestbook .guestbook-form input::placeholder,
+.guestbook .guestbook-form textarea::placeholder,
+.guestbook .submit-button,
+.guestbook .refresh-button,
+.guestbook .form-status,
+.guestbook .messages-status,
+.guestbook .message-board h3,
+.guestbook .message-author,
+.guestbook .message-date,
+.guestbook .message-content {
+  font-family: var(--serif);
+}
+
+/* Navigation labels remain Pretendard */
+
+.running-head,
+.page-meta,
+.book-counter,
+.book-hint,
+.book-arrow,
+.book-dot,
+.share-button,
+.share-status,
+.skip-link,
+.site-footer a {
+  font-family: var(--sans);
 }
