@@ -10,10 +10,10 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="우리의 결혼 소식">
-  <meta property="og:description" content="서로의 삶에 따뜻한 온기가 되어줄 두 사람이 만났습니다.">
+  <meta property="og:description" content="김성빈과 최윤영의 결혼 소식을 전합니다.">
   <title>우리의 결혼 소식</title>
 
-  <!-- Modern, understated Korean fonts: Pretendard + Noto Serif KR -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,39 +32,50 @@
 
   <div class="site-shell">
 
-    <!-- COVER: wedding_1.jpg -->
-    <header class="cover" id="top">
+    <!-- =======================================
+         COVER: Magazine-style cover photo
+         ======================================= -->
+
+    <header class="cover cover--magazine" id="top">
 
       <div class="running-head" aria-hidden="true">
         <span>결혼 소식</span>
         <span>VOL. 01</span>
       </div>
 
-      <div class="photo-shell photo-shell--cover reveal" data-photo>
+      <!-- Screen-reader title, not visually displayed -->
+      <h1 class="visually-hidden">
+        김성빈과 최윤영의 결혼 소식
+      </h1>
+
+      <!-- Magazine cover: wedding_1.jpg -->
+      <div
+        class="photo-shell photo-shell--cover photo-shell--cover-full reveal"
+        data-photo
+      >
         <img
           src="./assets/photos/wedding_1.jpg"
-          alt="결혼 소식 표지 사진"
+          alt="김성빈과 최윤영의 결혼 소식을 전하는 잡지형 표지"
           width="1080"
           height="1350"
           fetchpriority="high"
-          style="--photo-position:center 45%"
+          decoding="async"
         >
+
         <div class="photo-placeholder" aria-hidden="true">
           <span>PHOTO 01</span>
           <small>표지 사진</small>
         </div>
       </div>
 
-      <div class="cover-copy reveal">
-        <h1>저희, 결혼합니다.</h1>
-
+      <!-- Small name line below the magazine image -->
+      <!-- If names are already printed on your cover, delete this block -->
+      <div class="cover-copy cover-copy--minimal reveal">
         <p class="names">
           <span>김성빈</span>
           <i>그리고</i>
           <span>최윤영</span>
         </p>
-
-        <p class="date">2026. 12. 26</p>
       </div>
 
       <a class="scroll-cue" href="#main">
@@ -77,9 +88,9 @@
 
     <main id="main">
 
-      <!-- ============================================
-           CHAPTER 01: FAMILY NOTICE
-           ============================================ -->
+      <!-- =======================================
+           CHAPTER 01: Family-only wedding notice
+           ======================================= -->
 
       <section
         class="page family-note"
@@ -100,38 +111,31 @@
           </h2>
 
           <div class="letter-body">
-
             <p>
-              양가 가족분들만 모시고 소박하고 조용하게
-              예식을 진행하게 되었습니다.
+              양가 가족분들만 모시고 소박하고 조용하게 예식을 진행하게 되었습니다.
             </p>
 
             <p>
-              마음 같아서는 소중한 모든 분들을 직접 모시고
-              기쁨을 나누고 싶었으나, 두 사람의 뜻에 따라
-              가족 중심의 작고 정갈한 자리를 마련하게 된 점
+              마음 같아서는 소중한 모든 분들을 직접 모시고 기쁨을 나누고 싶었으나,
+              두 사람의 뜻에 따라 가족 중심의 작고 정갈한 자리를 마련하게 된 점
               넓은 마음으로 양해 부탁드립니다.
             </p>
 
             <p>
-              멀리서 전해주시는 따뜻한 축하와 격려의 마음을
-              가슴 깊이 간직하며, 서로 아끼고 베풀며
-              예쁘게 살아가겠습니다.
+              멀리서 전해주시는 따뜻한 축하와 격려의 마음을 가슴 깊이 간직하며,
+              서로 아끼고 베풀며 예쁘게 살아가겠습니다.
             </p>
-
           </div>
+
         </div>
       </section>
 
 
-      <!-- ============================================
-           CHAPTER 02: OUR STORY
-           ============================================ -->
+      <!-- =======================================
+           CHAPTER 02: Our story
+           ======================================= -->
 
-      <section
-        class="page gallery"
-        aria-labelledby="gallery-title"
-      >
+      <section class="page gallery" aria-labelledby="gallery-title">
 
         <div class="page-meta reveal" aria-hidden="true">
           <span>CHAPTER 02</span>
@@ -145,10 +149,9 @@
         </div>
 
 
-        <!-- ======================================
-             STORY 01: PHOTO BOOK SLIDER
-             wedding_4.jpg + 7 additional photos
-             ====================================== -->
+        <!-- =====================================
+             STORY 01: Eight-image photo slider
+             ===================================== -->
 
         <figure class="gallery-beat gallery-beat--book reveal">
 
@@ -176,10 +179,8 @@
                 <img
                   src="./assets/photos/wedding_4.jpg"
                   alt="우리의 이야기 첫 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 01</span>
@@ -187,18 +188,13 @@
               </div>
 
               <!-- Slide 02 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_2.jpg"
                   alt="우리의 이야기 두 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 02</span>
@@ -206,18 +202,13 @@
               </div>
 
               <!-- Slide 03 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_3.jpg"
                   alt="우리의 이야기 세 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 03</span>
@@ -225,18 +216,13 @@
               </div>
 
               <!-- Slide 04 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_4.jpg"
                   alt="우리의 이야기 네 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 04</span>
@@ -244,18 +230,13 @@
               </div>
 
               <!-- Slide 05 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_5.jpg"
                   alt="우리의 이야기 다섯 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 05</span>
@@ -263,18 +244,13 @@
               </div>
 
               <!-- Slide 06 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_6.jpg"
                   alt="우리의 이야기 여섯 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 06</span>
@@ -282,18 +258,13 @@
               </div>
 
               <!-- Slide 07 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_7.jpg"
                   alt="우리의 이야기 일곱 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 07</span>
@@ -301,18 +272,13 @@
               </div>
 
               <!-- Slide 08 -->
-              <div
-                class="photo-shell photo-slide"
-                data-photo
-                aria-hidden="true"
-              >
+              <div class="photo-shell photo-slide"
+                   data-photo aria-hidden="true">
                 <img
                   src="./assets/photos/wedding_4_8.jpg"
                   alt="우리의 이야기 여덟 번째 사진"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
+                  width="1080" height="1350"
+                  loading="lazy" decoding="async"
                 >
                 <div class="photo-placeholder" aria-hidden="true">
                   <span>ALBUM 08</span>
@@ -322,7 +288,7 @@
             </div>
 
 
-            <!-- Slider navigation -->
+            <!-- Slider controls -->
             <div class="book-controls">
 
               <button
@@ -338,9 +304,7 @@
                   id="book-counter"
                   aria-live="polite"
                   aria-atomic="true"
-                >
-                  01 / 08
-                </span>
+                >01 / 08</span>
 
                 <span class="book-hint">
                   사진을 옆으로 넘겨보세요
@@ -371,57 +335,34 @@
         </figure>
 
 
-        <!-- ======================================
-             STORY 02: WEDDING 2 + WEDDING 3
-             Former introduction photos
-             Now presented as a two-photo album
-             ====================================== -->
+        <!-- =====================================
+             STORY 02: Photos 2 and 3
+             ===================================== -->
 
         <figure class="gallery-beat reveal">
 
           <div class="photo-album">
 
-            <!-- Photo 02 -->
-            <div
-              class="photo-shell photo-shell--album"
-              data-photo
-            >
+            <div class="photo-shell photo-shell--album" data-photo>
               <img
                 src="./assets/photos/wedding_2.jpg"
                 alt="신랑 김성빈의 사진"
-                width="1080"
-                height="1350"
-                loading="lazy"
-                decoding="async"
+                width="1080" height="1350"
+                loading="lazy" decoding="async"
               >
-
-              <div
-                class="photo-placeholder"
-                aria-hidden="true"
-              >
+              <div class="photo-placeholder" aria-hidden="true">
                 <span>PHOTO 02</span>
               </div>
             </div>
 
-
-            <!-- Photo 03 -->
-            <div
-              class="photo-shell photo-shell--album"
-              data-photo
-            >
+            <div class="photo-shell photo-shell--album" data-photo>
               <img
                 src="./assets/photos/wedding_3.jpg"
                 alt="신부 최윤영의 사진"
-                width="1080"
-                height="1350"
-                loading="lazy"
-                decoding="async"
+                width="1080" height="1350"
+                loading="lazy" decoding="async"
               >
-
-              <div
-                class="photo-placeholder"
-                aria-hidden="true"
-              >
+              <div class="photo-placeholder" aria-hidden="true">
                 <span>PHOTO 03</span>
               </div>
             </div>
@@ -429,53 +370,39 @@
           </div>
 
           <figcaption>
-            서로 다른 두 사람이 만나,
-            같은 방향을 바라보게 되었습니다.
+            서로를 바라보며 웃음짓게 되었습니다.
           </figcaption>
 
         </figure>
 
 
-        <!-- ======================================
-             STORY 03: WEDDING 5 + WEDDING 6
-             Existing side-by-side album
-             ====================================== -->
+        <!-- =====================================
+             STORY 03: Photos 5 and 6
+             ===================================== -->
 
         <figure class="gallery-beat reveal">
 
           <div class="photo-album">
 
-            <div
-              class="photo-shell photo-shell--album"
-              data-photo
-            >
+            <div class="photo-shell photo-shell--album" data-photo>
               <img
                 src="./assets/photos/wedding_5.jpg"
                 alt="다섯 번째 추억 사진"
-                width="1080"
-                height="1350"
-                loading="lazy"
-                decoding="async"
+                width="1080" height="1350"
+                loading="lazy" decoding="async"
               >
-
               <div class="photo-placeholder" aria-hidden="true">
                 <span>PHOTO 05</span>
               </div>
             </div>
 
-            <div
-              class="photo-shell photo-shell--album"
-              data-photo
-            >
+            <div class="photo-shell photo-shell--album" data-photo>
               <img
                 src="./assets/photos/wedding_6.jpg"
                 alt="여섯 번째 추억 사진"
-                width="1080"
-                height="1350"
-                loading="lazy"
-                decoding="async"
+                width="1080" height="1350"
+                loading="lazy" decoding="async"
               >
-
               <div class="photo-placeholder" aria-hidden="true">
                 <span>PHOTO 06</span>
               </div>
@@ -484,17 +411,15 @@
           </div>
 
           <figcaption>
-            함께 웃고, 함께 고민하며
-            서로의 가장 좋은 친구가 되었습니다.
+            함께 웃고, 함께 고민하며 서로의 가장 좋은 친구가 되었습니다.
           </figcaption>
 
         </figure>
 
 
-        <!-- ======================================
-             STORY 04: FINAL PORTRAIT
-             wedding_7.jpg
-             ====================================== -->
+        <!-- =====================================
+             STORY 04: Final photo
+             ===================================== -->
 
         <figure class="gallery-beat reveal">
 
@@ -505,10 +430,8 @@
             <img
               src="./assets/photos/wedding_7.jpg"
               alt="두 사람의 새로운 시작"
-              width="1080"
-              height="1350"
-              loading="lazy"
-              decoding="async"
+              width="1080" height="1350"
+              loading="lazy" decoding="async"
             >
 
             <div class="photo-placeholder" aria-hidden="true">
@@ -518,14 +441,13 @@
           </div>
 
           <figcaption>
-            이제 서로의 평생 같은 편이 되어
-            새로운 이야기를 시작합니다.
+            이제 서로의 평생 같은 편이 되어 새로운 이야기를 시작합니다.
           </figcaption>
 
         </figure>
 
 
-        <!-- SIGNATURE -->
+        <!-- Signature -->
         <div class="signature reveal">
           <span>2026. 12. 26</span>
           <strong>김성빈 · 최윤영 드림</strong>
@@ -534,9 +456,9 @@
       </section>
 
 
-      <!-- ============================================
-           CHAPTER 03: GUESTBOOK
-           ============================================ -->
+      <!-- =======================================
+           CHAPTER 03: Guestbook
+           ======================================= -->
 
       <section
         class="page guestbook"
@@ -552,10 +474,8 @@
           <h2 id="guestbook-title">
             따뜻한 한마디를<br>남겨주세요.
           </h2>
-
           <p>
-            멀리서 전해주시는 축하도 두 사람에게
-            큰 선물이 됩니다.<br>
+            멀리서 전해주시는 축하도 두 사람에게 큰 선물이 됩니다.<br>
             편하게 축하의 마음을 남겨주세요.
           </p>
         </div>
@@ -596,7 +516,6 @@
             <label for="guest-website">
               웹사이트 (비워두세요)
             </label>
-
             <input
               id="guest-website"
               name="website"
@@ -627,7 +546,7 @@
         </form>
 
 
-        <!-- Approved messages -->
+        <!-- Approved guestbook messages -->
         <div
           class="message-board reveal"
           aria-labelledby="messages-title"
@@ -657,10 +576,7 @@
             aria-live="polite"
           ></p>
 
-          <ul
-            class="message-list"
-            id="message-list"
-          ></ul>
+          <ul class="message-list" id="message-list"></ul>
 
         </div>
 
@@ -669,7 +585,7 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="site-footer">
 
       <p class="fin">FIN.</p>
