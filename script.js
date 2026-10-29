@@ -1,4 +1,3 @@
-
 (() => {
   "use strict";
 
@@ -6,9 +5,8 @@
   // CONFIGURATION
   // ============================================
 
-  // Enter your existing Supabase credentials.
-  // Use a PUBLIC publishable key only.
-  // NEVER put a secret/service_role key here.
+  // Insert your existing Supabase credentials.
+  // NEVER use a secret/service_role key here.
 
   const SUPABASE_URL = "https://clestcghqwaptwliwcva.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_f1Uof1GHbOUGxtibQzlSRA_S2sGDluA";
@@ -24,9 +22,6 @@
   // 1. PHOTO LOADING
   // ============================================
 
-  // Display images when loaded.
-  // Show placeholders if files are missing.
-
   document.querySelectorAll("[data-photo]").forEach((shell) => {
     const img = shell.querySelector("img");
     const placeholder = shell.querySelector(".photo-placeholder");
@@ -36,14 +31,12 @@
     const showPhoto = () => {
       shell.classList.add("is-loaded");
       shell.classList.remove("is-missing");
-
       placeholder?.setAttribute("aria-hidden", "true");
     };
 
     const showPlaceholder = () => {
       shell.classList.add("is-missing");
       shell.classList.remove("is-loaded");
-
       placeholder?.setAttribute("aria-hidden", "false");
     };
 
@@ -51,7 +44,11 @@
     img.addEventListener("error", showPlaceholder);
 
     if (img.complete) {
-      (img.naturalWidth > 0 ? showPhoto : showPlaceholder)();
+      if (img.naturalWidth > 0) {
+        showPhoto();
+      } else {
+        showPlaceholder();
+      }
     }
   });
 
@@ -85,7 +82,6 @@
     revealItems.forEach((item) => {
       observer.observe(item);
     });
-
   } else {
     revealItems.forEach((item) => {
       item.classList.add("is-visible");
@@ -93,7 +89,7 @@
   }
 
   // ============================================
-  // 3. READING PROGRESS BAR
+  // 3. READING PROGRESS
   // ============================================
 
   const progressBar = document.querySelector(
@@ -139,28 +135,28 @@
   // 4. PHOTO BOOK SLIDER
   // ============================================
 
-  // Photos:
-  // wedding_4.jpg
-  // wedding_4_2.jpg
-  // wedding_4_3.jpg
-  // wedding_4_4.jpg
-  // wedding_4_5.jpg
-  // wedding_4_6.jpg
-  // wedding_4_7.jpg
-  // wedding_4_8.jpg
+  // Supported photo proportions:
   //
-  // Features:
-  // - Smartphone swipe
-  // - Previous / next buttons
-  // - Keyboard arrow navigation
-  // - Numbered page indicators
-  // - Page-turn animation
-  // - Reduced-motion accessibility
-  // - Adjacent photo preloading
+  // Portrait:  4:5
+  // Landscape: 5:4
+  //
+  // Image orientation is detected automatically.
+  // No cropping or zooming.
+  //
+  // Navigation:
+  // - Swipe left/right
+  // - Previous/next buttons
+  // - Keyboard arrows
+  // - Page indicator buttons
+  //
+  // All transitions preserve the page-turn effect.
 
-  const book = document.getElementById("story-photo-book");
+  const book = document.getElementById(
+    "story-photo-book"
+  );
 
   if (book) {
+
     const stage = document.getElementById("book-stage");
 
     const slides = [
@@ -177,18 +173,109 @@
     let pointerStart = null;
     let finishTimer = null;
 
-    // ----------------------------------------
-    // Preload adjacent images
-    // ----------------------------------------
+    // ========================================
+    // 4.1. Automatic image aspect ratio
+    // ========================================
+
+    function updateStageFit(index = current) {
+
+      if (!stage || !slides[index]) return;
+
+      const img = slides[index].querySelector("img");
+
+      if (
+        !img ||
+        img.naturalWidth === 0 ||
+        img.naturalHeight === 0
+      ) {
+        return;
+      }
+
+      // Determine orientation using the actual
+      // dimensions of the loaded image file.
+
+      const landscape =
+        img.naturalWidth > img.naturalHeight;
+
+      // All images have been prepared as
+      // either 5:4 landscape or 4:5 portrait.
+
+      const ratio = landscape ? 5 / 4 : 4 / 5;
+
+      const ratioText = landscape
+        ? "5 / 4"
+        : "4 / 5";
+
+      // Orientation information for CSS.
+
+      stage.dataset.orientation = landscape
+        ? "landscape"
+        : "portrait";
+
+      // Update album aspect ratio.
+
+      stage.style.setProperty(
+        "--book-ratio",
+        ratioText
+      );
+
+      // Prevent portrait photos from becoming
+      // excessively tall on smaller screens.
+
+      const viewportHeight =
+        window.visualViewport?.height ||
+        window.innerHeight;
+
+      const maxWidth = Math.min(
+        485,
+        Math.floor(viewportHeight * 0.76 * ratio)
+      );
+
+      stage.style.setProperty(
+        "--book-width-cap",
+        `${maxWidth}px`
+      );
+
+      updateProgress();
+    }
+
+    // ========================================
+    // 4.2. Handle lazy-loaded images
+    // ========================================
+
+    slides.forEach((slide, index) => {
+
+      const img = slide.querySelector("img");
+
+      if (!img) return;
+
+      img.addEventListener("load", () => {
+
+        // Only resize if the loaded image
+        // is currently being displayed.
+
+        if (index === current) {
+          updateStageFit(index);
+        }
+      });
+
+    });
+
+    // ========================================
+    // 4.3. Preload nearby images
+    // ========================================
 
     function preloadAdjacent(index) {
+
       if (!slides.length) return;
 
       [-1, 0, 1].forEach((offset) => {
-        const targetIndex =
-          (index + offset + slides.length) % slides.length;
 
-        const img = slides[targetIndex].querySelector("img");
+        const target =
+          (index + offset + slides.length) %
+          slides.length;
+
+        const img = slides[target].querySelector("img");
 
         if (img) {
           img.loading = "eager";
@@ -196,11 +283,12 @@
       });
     }
 
-    // ----------------------------------------
-    // Create page indicator buttons
-    // ----------------------------------------
+    // ========================================
+    // 4.4. Create page indicators
+    // ========================================
 
     const dotButtons = slides.map((_, i) => {
+
       const dot = document.createElement("button");
 
       dot.type = "button";
@@ -220,16 +308,21 @@
       return dot;
     });
 
-    // ----------------------------------------
-    // Render counter and buttons
-    // ----------------------------------------
+    // ========================================
+    // 4.5. Render controls
+    // ========================================
 
     function render() {
+
+      // Automatically display the actual
+      // number of photos in the HTML.
+
       counter.textContent =
         `${String(current + 1).padStart(2, "0")} / ` +
         `${String(slides.length).padStart(2, "0")}`;
 
       dotButtons.forEach((dot, i) => {
+
         if (i === current) {
           dot.setAttribute("aria-current", "true");
         } else {
@@ -241,11 +334,12 @@
       next.disabled = busy;
     }
 
-    // ----------------------------------------
-    // Navigate to a specific photo
-    // ----------------------------------------
+    // ========================================
+    // 4.6. Navigate between photos
+    // ========================================
 
     function goTo(target, direction) {
+
       if (busy || slides.length < 2) return;
 
       const newIndex =
@@ -263,7 +357,8 @@
       busy = true;
       current = newIndex;
 
-      // Reveal the new image beneath the old one.
+      // Show the next photo beneath
+      // the current photo.
 
       newSlide.classList.add("is-active");
       newSlide.setAttribute("aria-hidden", "false");
@@ -271,10 +366,17 @@
       oldSlide.classList.remove("is-active");
       oldSlide.setAttribute("aria-hidden", "true");
 
+      // Preload upcoming photos.
+
       preloadAdjacent(current);
+
+      // Switch the album to 4:5 or 5:4.
+
+      updateStageFit(current);
+
       render();
 
-      // Skip animation if reduced motion is preferred.
+      // Respect reduced-motion settings.
 
       if (prefersReducedMotion.matches) {
         busy = false;
@@ -282,25 +384,23 @@
         return;
       }
 
-      // Apply appropriate page-turn direction.
+      // Choose the correct flip direction.
 
-      const flipClass =
-        forward === "prev"
-          ? "is-turning-prev"
-          : "is-turning-next";
+      const flipClass = forward === "prev"
+        ? "is-turning-prev"
+        : "is-turning-next";
 
       oldSlide.classList.add(
         "is-turning",
         flipClass
       );
 
-      // Clean up after the animation.
-      // Timeout acts as a fallback if animationend
-      // does not fire (for example, when switching tabs).
+      // Clean up the animation.
 
       let finished = false;
 
       function finishTurn() {
+
         if (finished) return;
 
         finished = true;
@@ -333,15 +433,17 @@
         onEnd
       );
 
+      // Fallback when animationend does not fire.
+
       finishTimer = setTimeout(
         finishTurn,
         850
       );
     }
 
-    // ----------------------------------------
-    // Previous and next buttons
-    // ----------------------------------------
+    // ========================================
+    // 4.7. Previous / next buttons
+    // ========================================
 
     prev.addEventListener("click", () => {
       goTo(current - 1, "prev");
@@ -351,28 +453,31 @@
       goTo(current + 1, "next");
     });
 
-    // ----------------------------------------
-    // Keyboard navigation
-    // ----------------------------------------
+    // ========================================
+    // 4.8. Keyboard navigation
+    // ========================================
 
     stage.addEventListener("keydown", (event) => {
+
       if (event.key === "ArrowLeft") {
         event.preventDefault();
         goTo(current - 1, "prev");
+      }
 
-      } else if (event.key === "ArrowRight") {
+      if (event.key === "ArrowRight") {
         event.preventDefault();
         goTo(current + 1, "next");
       }
     });
 
-    // ----------------------------------------
-    // Smartphone swipe navigation
-    // ----------------------------------------
+    // ========================================
+    // 4.9. Smartphone swipe navigation
+    // ========================================
 
     stage.addEventListener(
       "touchstart",
       (event) => {
+
         if (event.touches.length !== 1) {
           pointerStart = null;
           return;
@@ -389,6 +494,7 @@
     stage.addEventListener(
       "touchend",
       (event) => {
+
         if (
           !pointerStart ||
           event.changedTouches.length !== 1
@@ -406,19 +512,16 @@
 
         pointerStart = null;
 
-        // Only recognize horizontal gestures.
+        // Only process horizontal gestures.
         // Vertical scrolling remains unaffected.
 
         if (
           Math.abs(dx) >= 45 &&
           Math.abs(dx) > Math.abs(dy) * 1.3
         ) {
-          const direction =
-            dx < 0 ? "next" : "prev";
-
           goTo(
             current + (dx < 0 ? 1 : -1),
-            direction
+            dx < 0 ? "next" : "prev"
           );
         }
       },
@@ -433,11 +536,28 @@
       { passive: true }
     );
 
-    // ----------------------------------------
-    // Initialize slider
-    // ----------------------------------------
+    // ========================================
+    // 4.10. Initialize slider
+    // ========================================
 
     preloadAdjacent(0);
+    updateStageFit(0);
+
+    // Recalculate size on screen rotation
+    // or browser window resizing.
+
+    window.addEventListener(
+      "resize",
+      () => updateStageFit(),
+      { passive: true }
+    );
+
+    window.visualViewport?.addEventListener(
+      "resize",
+      () => updateStageFit(),
+      { passive: true }
+    );
+
     render();
   }
 
@@ -454,19 +574,21 @@
   );
 
   shareButton?.addEventListener("click", async () => {
+
     const url = location.href.split("#")[0];
 
     const data = {
       title: document.title,
-      text: "서로의 삶에 따뜻한 온기가 되어줄 두 사람이 만났습니다.",
+      text: "김성빈과 최윤영의 결혼 소식을 전합니다.",
       url
     };
 
     try {
+
       if (navigator.share) {
         await navigator.share(data);
-
       } else {
+
         if (!navigator.clipboard?.writeText) {
           throw new Error("Clipboard unavailable");
         }
@@ -480,6 +602,7 @@
       }
 
     } catch (error) {
+
       if (
         error.name !== "AbortError" &&
         shareStatus
@@ -494,54 +617,26 @@
   // 6. SUPABASE GUESTBOOK
   // ============================================
 
-  // The guestbook uses the existing database:
+  // Existing Supabase table:
   //
   // public.guestbook_messages
   //
-  // Expected columns:
+  // Columns:
   // id, name, message, approved, created_at
   //
-  // Only approved messages are visible publicly.
+  // Visitors can submit messages.
+  // Only approved messages are displayed.
 
-  const form = document.getElementById(
-    "guestbook-form"
-  );
+  const form = document.getElementById("guestbook-form");
+  const nameInput = document.getElementById("guest-name");
+  const messageInput = document.getElementById("guest-message");
+  const honeypotInput = document.getElementById("guest-website");
 
-  const nameInput = document.getElementById(
-    "guest-name"
-  );
-
-  const messageInput = document.getElementById(
-    "guest-message"
-  );
-
-  const honeypotInput = document.getElementById(
-    "guest-website"
-  );
-
-  const submitButton = document.getElementById(
-    "guest-submit"
-  );
-
-  const formStatus = document.getElementById(
-    "form-status"
-  );
-
-  const messagesStatus = document.getElementById(
-    "messages-status"
-  );
-
-  const messageList = document.getElementById(
-    "message-list"
-  );
-
-  const refreshButton = document.getElementById(
-    "refresh-messages"
-  );
-
-  // ----------------------------------------
-  // Verify Supabase configuration
-  // ----------------------------------------
+  const submitButton = document.getElementById("guest-submit");
+  const formStatus = document.getElementById("form-status");
+  const messagesStatus = document.getElementById("messages-status");
+  const messageList = document.getElementById("message-list");
+  const refreshButton = document.getElementById("refresh-messages");
 
   const configured =
     /^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(
@@ -552,6 +647,7 @@
     );
 
   if (!configured) {
+
     if (formStatus) {
       formStatus.textContent =
         "방명록을 준비 중입니다. 설정 후 메시지를 남길 수 있습니다.";
@@ -565,9 +661,9 @@
     return;
   }
 
-  // ----------------------------------------
-  // Supabase REST API
-  // ----------------------------------------
+  // ========================================
+  // 6.1. Supabase REST API
+  // ========================================
 
   const base =
     SUPABASE_URL.replace(/\/$/, "") +
@@ -583,11 +679,12 @@
   formStatus.textContent =
     "작성하신 메시지는 확인 후 공개됩니다.";
 
-  // ----------------------------------------
-  // Format message dates
-  // ----------------------------------------
+  // ========================================
+  // 6.2. Format dates
+  // ========================================
 
   const formatDate = (timestamp) => {
+
     const date = new Date(timestamp);
 
     if (Number.isNaN(date.getTime())) {
@@ -602,64 +699,65 @@
     }).format(date);
   };
 
-  // ----------------------------------------
-  // Render approved messages
-  // ----------------------------------------
+  // ========================================
+  // 6.3. Render approved messages
+  // ========================================
 
   function renderMessages(messages) {
+
     messageList.replaceChildren();
 
     if (!messages.length) {
       messagesStatus.textContent =
         "첫 번째 축하 메시지를 기다리고 있습니다.";
-
       return;
     }
 
     messagesStatus.textContent =
       `공개된 축하 메시지 ${messages.length}개`;
 
-    messages.forEach(
-      ({ name, message, created_at }) => {
-        const item = document.createElement("li");
-        item.className = "message-item";
+    messages.forEach(({ name, message, created_at }) => {
 
-        const header = document.createElement("div");
-        header.className = "message-item-header";
+      const item = document.createElement("li");
+      item.className = "message-item";
 
-        const author = document.createElement("strong");
-        author.className = "message-author";
-        author.textContent = name;
+      const header = document.createElement("div");
+      header.className = "message-item-header";
 
-        const date = document.createElement("time");
-        date.className = "message-date";
-        date.dateTime = created_at;
-        date.textContent = formatDate(created_at);
+      const author = document.createElement("strong");
+      author.className = "message-author";
+      author.textContent = name;
 
-        const content = document.createElement("p");
-        content.className = "message-content";
+      const date = document.createElement("time");
+      date.className = "message-date";
+      date.dateTime = created_at;
+      date.textContent = formatDate(created_at);
 
-        // textContent prevents HTML injection.
-        content.textContent = message;
+      const content = document.createElement("p");
+      content.className = "message-content";
 
-        header.append(author, date);
-        item.append(header, content);
-        messageList.append(item);
-      }
-    );
+      // Prevent HTML injection.
+      content.textContent = message;
+
+      header.append(author, date);
+      item.append(header, content);
+      messageList.append(item);
+    });
   }
 
-  // ----------------------------------------
-  // Load approved messages
-  // ----------------------------------------
+  // ========================================
+  // 6.4. Load guestbook messages
+  // ========================================
 
   async function loadMessages() {
+
     refreshButton.disabled = true;
 
     messagesStatus.textContent =
       "축하 메시지를 불러오는 중입니다...";
 
     try {
+
       const query =
         "?select=name,message,created_at" +
         "&order=created_at.desc" +
@@ -688,10 +786,8 @@
       renderMessages(messages);
 
     } catch (error) {
-      console.error(
-        "방명록 조회 오류:",
-        error
-      );
+
+      console.error("방명록 조회 오류:", error);
 
       messagesStatus.textContent =
         "메시지를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.";
@@ -701,95 +797,89 @@
     }
   }
 
-  // ----------------------------------------
-  // Submit congratulations message
-  // ----------------------------------------
+  // ========================================
+  // 6.5. Submit guestbook message
+  // ========================================
 
-  form.addEventListener(
-    "submit",
-    async (event) => {
-      event.preventDefault();
+  form.addEventListener("submit", async (event) => {
 
-      if (
-        honeypotInput.value.trim() ||
-        !form.reportValidity()
-      ) {
-        return;
+    event.preventDefault();
+
+    if (
+      honeypotInput.value.trim() ||
+      !form.reportValidity()
+    ) {
+      return;
+    }
+
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (
+      !name ||
+      name.length > 30 ||
+      message.length < 2 ||
+      message.length > 300
+    ) {
+      formStatus.textContent =
+        "이름과 메시지 길이를 확인해 주세요.";
+      return;
+    }
+
+    submitButton.disabled = true;
+
+    formStatus.textContent =
+      "메시지를 전송하는 중입니다...";
+
+    try {
+
+      const response = await fetch(base, {
+        method: "POST",
+
+        headers: {
+          ...headers,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal"
+        },
+
+        body: JSON.stringify({
+          name,
+          message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `POST failed: ${response.status}`
+        );
       }
 
-      const name = nameInput.value.trim();
-      const message = messageInput.value.trim();
-
-      if (
-        !name ||
-        name.length > 30 ||
-        message.length < 2 ||
-        message.length > 300
-      ) {
-        formStatus.textContent =
-          "이름과 메시지 길이를 확인해 주세요.";
-
-        return;
-      }
-
-      submitButton.disabled = true;
+      form.reset();
 
       formStatus.textContent =
-        "메시지를 전송하는 중입니다...";
+        "감사합니다! 메시지가 접수되었습니다. 확인 후 방명록에 공개됩니다.";
 
-      try {
-        const response = await fetch(
-          base,
-          {
-            method: "POST",
-            headers: {
-              ...headers,
-              "Content-Type": "application/json",
-              Prefer: "return=minimal"
-            },
-            body: JSON.stringify({
-              name,
-              message
-            })
-          }
-        );
+    } catch (error) {
 
-        if (!response.ok) {
-          throw new Error(
-            `POST failed: ${response.status}`
-          );
-        }
+      console.error("방명록 등록 오류:", error);
 
-        form.reset();
+      formStatus.textContent =
+        "등록하지 못했습니다. 연결 상태를 확인한 후 다시 시도해 주세요.";
 
-        formStatus.textContent =
-          "감사합니다! 메시지가 접수되었습니다. 확인 후 방명록에 공개됩니다.";
-
-      } catch (error) {
-        console.error(
-          "방명록 등록 오류:",
-          error
-        );
-
-        formStatus.textContent =
-          "등록하지 못했습니다. 연결 상태를 확인한 후 다시 시도해 주세요.";
-
-      } finally {
-        submitButton.disabled = false;
-      }
+    } finally {
+      submitButton.disabled = false;
     }
-  );
+  });
 
-  // ----------------------------------------
-  // Refresh guestbook
-  // ----------------------------------------
+  // ========================================
+  // 6.6. Refresh messages
+  // ========================================
 
   refreshButton.addEventListener(
     "click",
     loadMessages
   );
 
-  // Initial guestbook loading
   loadMessages();
 
 })();
