@@ -761,7 +761,7 @@
       const query =
         "?select=name,message,created_at" +
         "&order=created_at.desc" +
-        "&limit=30";
+        "&limit=100";
 
       const response = await fetch(
         base + query,
