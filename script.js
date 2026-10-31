@@ -875,11 +875,106 @@
   // 6.6. Refresh messages
   // ========================================
 
-  refreshButton.addEventListener(
-    "click",
-    loadMessages
+    // ==========================================
+  // EXPANDABLE CONGRATULATIONS MESSAGE LIST
+  // ==========================================
+
+  // 처음에 보여줄 메시지 개수
+  const VISIBLE_MESSAGE_COUNT = 3;
+
+  // 현재 펼쳐진 상태인지 확인
+  let messagesExpanded = false;
+
+  // 더 보기 / 접기 버튼 생성
+  const toggleMessagesButton = document.createElement("button");
+
+  toggleMessagesButton.type = "button";
+  toggleMessagesButton.id = "toggle-messages";
+  toggleMessagesButton.className = "message-toggle";
+
+  toggleMessagesButton.hidden = true;
+
+  toggleMessagesButton.setAttribute(
+    "aria-controls",
+    "message-list"
   );
 
+  toggleMessagesButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  // 메시지 목록 바로 아래에 버튼 배치
+  messageList.insertAdjacentElement(
+    "afterend",
+    toggleMessagesButton
+  );
+
+  // 메시지 표시 상태 업데이트
+  function updateMessageCollapse() {
+
+    const totalMessages = messageList.children.length;
+
+    const extraMessages = Math.max(
+      0,
+      totalMessages - VISIBLE_MESSAGE_COUNT
+    );
+
+    // 추가 메시지가 없으면 초기 상태로 변경
+    if (extraMessages === 0) {
+      messagesExpanded = false;
+    }
+
+    // 메시지 3개 초과 + 접힌 상태일 때만 목록 접기
+    const shouldCollapse =
+      extraMessages > 0 && !messagesExpanded;
+
+    messageList.classList.toggle(
+      "is-collapsed",
+      shouldCollapse
+    );
+
+    // 메시지가 3개 이하면 버튼 숨기기
+    toggleMessagesButton.hidden = extraMessages === 0;
+
+    // 접근성 속성 업데이트
+    toggleMessagesButton.setAttribute(
+      "aria-expanded",
+      String(messagesExpanded)
+    );
+
+    // 버튼 문구 변경
+    if (messagesExpanded) {
+      toggleMessagesButton.textContent =
+        "축하 메시지 접기 ↑";
+    } else {
+      toggleMessagesButton.textContent =
+        `축하 메시지 ${extraMessages}개 더 보기 ↓`;
+    }
+  }
+
+  // 버튼 클릭 시 펼치기 / 접기
+  toggleMessagesButton.addEventListener("click", () => {
+
+    messagesExpanded = !messagesExpanded;
+
+    updateMessageCollapse();
+
+  });
+
+  // Supabase에서 메시지를 새로 불러올 때 자동 업데이트
+  const messagesObserver = new MutationObserver(() => {
+    updateMessageCollapse();
+  });
+
+  messagesObserver.observe(messageList, {
+    childList: true
+  });
+
+  // 기존 새로고침 기능
+  refreshButton.addEventListener("click", loadMessages);
+
+  // 최초 메시지 불러오기
   loadMessages();
 
 })();
