@@ -819,7 +819,7 @@
       !name ||
       name.length > 30 ||
       message.length < 2 ||
-      message.length > 300
+      message.length > 1000
     ) {
       formStatus.textContent =
         "이름과 메시지 길이를 확인해 주세요.";
